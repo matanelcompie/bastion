@@ -1,0 +1,20 @@
+ version: 2
+ jobs:
+   deploy:
+     machine:
+       enabled: true
+     steps:
+       - run:
+           name: Deploy Over SSH
+           command: |
+             ssh $SSH_USER@$SSH_HOST 'hostname'
+             ssh $SSH_USER_PRIVATE@$SSH_HOST_PRIVATE 'hostname'
+             echo All Good
+ workflows:
+   version: 2
+   build-and-deploy:
+     jobs:
+       - deploy:
+           filters:
+             branches:
+               only: main # only deploy on the main branch
