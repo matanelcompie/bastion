@@ -10,8 +10,7 @@
              hostname
              ssh -t $SSH_USER@$SSH_HOST
              hostname
-             ssh -t $SSH_USER@$SSH_HOST_PRIVATE
-             hostname
+             ssh $SSH_USER@$SSH_HOST_PRIVATE "touch text.text"
              echo All Good
  workflows:
    version: 2
