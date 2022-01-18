@@ -7,7 +7,10 @@
        - run:
            name: Deploy Over SSH
            command: |
-             ssh $SSH_USER@$SSH_HOST "hostname"
+             ssh $SSH_USER@$SSH_HOST
+             hostname
+             ssh $SSH_USER@$SSH_HOST_PRIVATE
+             hostname
              echo All Good
  workflows:
    version: 2
